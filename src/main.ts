@@ -71,14 +71,18 @@ function readStoredAttribution(): URLSearchParams {
 }
 
 const attribution = readStoredAttribution();
-const landingParams = new URLSearchParams(window.location.search);
-for (const key of ATTRIBUTION_KEYS) {
-  if (landingParams.has(key)) attribution.set(key, landingParams.get(key) ?? '');
+function refreshAttribution(): void {
+  const currentParams = new URLSearchParams(window.location.search);
+  for (const key of ATTRIBUTION_KEYS) {
+    if (currentParams.has(key)) attribution.set(key, currentParams.get(key) ?? '');
+  }
+  try { sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, attribution.toString()); }
+  catch { /* Links continuam funcionando com os parâmetros da URL atual. */ }
 }
-try { sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, attribution.toString()); }
-catch { /* Links continuam funcionando com os parâmetros da URL atual. */ }
+refreshAttribution();
 
 function updateCheckoutLink(link: HTMLAnchorElement): void {
+  refreshAttribution();
   const url = new URL(link.href || CHECKOUT_URL);
   for (const key of ATTRIBUTION_KEYS) {
     if (attribution.has(key)) url.searchParams.set(key, attribution.get(key) ?? '');
