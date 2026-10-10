@@ -33,4 +33,4 @@ Para validar o rastreamento, use uma prévia HTTPS da Vercel com UTMs de teste n
 
 Confirmar que as alegações de quantidade de projetos e faturamento podem ser comprovadas, verificar os direitos de uso comercial dos arquivos e as condições reais de acesso, entrega e garantia. A copy do briefing foi preservada, com as alterações solicitadas: correções de `LUCrar` para `LUCRAR` e `POuco` para `POUCO`, nova headline do hero e substituição dos travessões e hífens do texto visível por vírgulas.
 
-Em 08/10/2026, o checkout informado abriu com oferta de R$ 37,90, mas exibiu taxa de serviço de R$ 0,99 e total de R$ 38,89. Confirmar com a Cakto o valor final e decidir como alinhar a apresentação do preço na página antes da publicação.
+A página agora anuncia R$ 19,90; o link do checkout Cakto não foi alterado. Antes de publicar, confirme no painel da Cakto que o valor cobrado também é R$ 19,90 e verifique eventuais taxas. Na última conferência registrada, em 08/10/2026, o checkout ainda mostrava R$ 37,90 mais R$ 0,99 de taxa.
