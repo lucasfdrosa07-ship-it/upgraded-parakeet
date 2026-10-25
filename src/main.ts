@@ -1,5 +1,13 @@
 import './styles.css';
 
+declare global {
+  interface Window {
+    TMTPagePixel?: {
+      checkoutClick: (eventName: string) => void;
+    };
+  }
+}
+
 const CHECKOUT_URL = 'https://pay.cakto.com.br/vib2iqj_1184826';
 const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'] as const;
 const ATTRIBUTION_STORAGE_KEY = 'serralheiro-attribution-v1';
@@ -97,6 +105,13 @@ document.addEventListener('click', (event) => {
   const link = target.closest<HTMLAnchorElement>('a.checkout-link');
   if (link) updateCheckoutLink(link);
 }, true);
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!(target instanceof Element) || !target.closest('a.checkout-link')) return;
+  try { window.TMTPagePixel?.checkoutClick('checkout_click'); }
+  catch { /* Falhas do Pixel TMT não devem impedir a navegação ao checkout. */ }
+});
 
 const carousel = document.querySelector<HTMLElement>('.testimonial-carousel');
 const image = document.querySelector<HTMLImageElement>('#testimonial-image');
@@ -269,3 +284,4 @@ faqButtons.forEach((button) => {
     }
   });
 });
+
