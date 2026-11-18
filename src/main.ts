@@ -9,7 +9,7 @@ declare global {
 }
 
 const CHECKOUT_URL = 'https://pay.cakto.com.br/vib2iqj_1184826';
-const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'] as const;
+const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'tmt_campaign', 'tmt_adset', 'tmt_ad'] as const;
 const ATTRIBUTION_STORAGE_KEY = 'serralheiro-attribution-v1';
 
 type Testimonial = { image: string; width: number; height: number };
